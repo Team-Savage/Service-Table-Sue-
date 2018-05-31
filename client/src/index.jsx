@@ -5,17 +5,34 @@ class TableService extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      tables : null
     } 
   }
-  // functions
+  
+  handleChange(event) {
+    this.setState({
+      [event.target.name] : event.target.value
+    });
+  }
+
+  spawnTables(num) {
+
+  }
 
   render() {
-    return (
-      <div className = 'table-service'>
-        I am the table service --- testing
-      </div>
-    )
+    return (this.state.tables)? 
+      (
+        <div className = 'table-spawn'>
+          <Table-Spawn spawn = {this.spawnTables.bind(this)}/>
+        </div>
+      )
+    :
+      (
+        <div className = 'table-service'>
+          How many tables?
+          <input type = 'text' name = 'tables' onChange = {this.handleChange.bind(this)}/>
+        </div>
+      )
   }
 };
 
