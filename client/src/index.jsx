@@ -5,8 +5,8 @@ class TableService extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tables : null,
-      seats  : []
+      tableCapacity : null,
+      tables        : []
     } 
   }
   
@@ -16,27 +16,28 @@ class TableService extends React.Component {
     });
   }
 
-  handleSeats(tables) {
-    for(let seat of tables) {
-      // map out tables
-        // spawn div to ask how many seats per table
-        // push seating object (holding all data end client needs) 
-      seats.push({})
-    }
+  handleSeats(tableCapacity) {
+    for(let table of tableCapacity) { 
+      let num = 1
+      let seat = {
+        'customerId': num
+      }
+      tables.push(seat)
+    };
   }
 
   render() {
-    return (this.state.tables)? 
+    return (this.state.tableCapacity)? 
       (
         <div className = 'table-spawn'>
-          <SeatArrangement spawn = {this.handleSeats.bind(this)}/>
+          <SeatArrangement seats = {this.handleSeats.bind(this)}/>
         </div>
       )
     :
       (
         <div className = 'table-service'>
           How many tables?
-          <input type = 'text' name = 'tables' onChange = {this.handleChange.bind(this)}/>
+          <input type = 'text' name = 'tableCapacity' onChange = {this.handleChange.bind(this)}/>
         </div>
       )
   }
