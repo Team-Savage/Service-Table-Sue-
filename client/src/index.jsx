@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SeatArrangement from './components/SeatArrangement';
 
 class TableService extends React.Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class TableService extends React.Component {
     return (this.state.tableCapacity)? 
       (
         <div className = 'table-spawn'>
-          <SeatArrangement seats = {this.handleSeats.bind(this)}/>
+          <SeatArrangement seats = {this.handleSeats.bind(this)} tableState = {this.state}/>
         </div>
       )
     :
