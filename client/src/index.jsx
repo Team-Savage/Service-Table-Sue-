@@ -7,6 +7,7 @@ class TableService extends React.Component {
     super(props);
     this.state = {
       tableCapacity : null,
+      lock          : false,
       tables        : []
     } 
   }
@@ -14,6 +15,12 @@ class TableService extends React.Component {
   handleChange(event) {
     this.setState({
       [event.target.name] : event.target.value
+    });
+  }
+
+  handleClick() {
+    this.setState({
+      lock: true
     });
   }
 
@@ -28,17 +35,18 @@ class TableService extends React.Component {
   }
 
   render() {
-    return (this.state.tableCapacity)? 
+    return (this.state.lock)? 
       (
         <div className = 'table-spawn'>
           <SeatArrangement seats = {this.handleSeats.bind(this)} tableState = {this.state}/>
         </div>
       )
-    :
+        :
       (
         <div className = 'table-service'>
           How many tables?
           <input type = 'text' name = 'tableCapacity' onChange = {this.handleChange.bind(this)}/>
+          <button onClick = {this.handleClick.bind(this)}>SUMBIT</button>
         </div>
       )
   }
