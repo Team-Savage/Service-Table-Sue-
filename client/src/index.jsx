@@ -17,36 +17,38 @@ class TableService extends React.Component {
       [event.target.name] : event.target.value
     });
   }
+  
+  handleTables() {
+    let capacity = parseInt(this.state.tableCapacity);
+    console.log(typeof(capacity))// number
+    let updateTables = [];
 
-  handleClick() {
-    this.setState({
-      lock: true
-    });
-  }
-
-  handleSeats(tableCapacity) {
-    for(let table of tableCapacity) { 
-      let num = 1
+    for(let i = 1; i <= capacity; i++) { 
       let seat = {
-        'customerId': num
+        'customerId': i
       }
-      tables.push(seat)
+      updateTables.push(seat);
     };
+    
+    this.setState({
+      lock   : true,
+      tables : updateTables
+    });
   }
 
   render() {
     return (this.state.lock)? 
       (
-        <div className = 'table-spawn'>
-          <SeatArrangement seats = {this.handleSeats.bind(this)} tableState = {this.state}/>
+        <div className='table-spawn'>
+          <SeatArrangement tableState={this.state}/>
         </div>
       )
         :
       (
-        <div className = 'table-service'>
+        <div className='table-service'>
           How many tables?
-          <input type = 'text' name = 'tableCapacity' onChange = {this.handleChange.bind(this)}/>
-          <button onClick = {this.handleClick.bind(this)}>SUMBIT</button>
+          <input type='text' name='tableCapacity' onChange={this.handleChange.bind(this)}/>
+          <button onClick={this.handleTables.bind(this)}>SUMBIT</button>
         </div>
       )
   }
