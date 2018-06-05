@@ -8,7 +8,7 @@ class TableService extends React.Component {
     this.state = {
       tableCapacity : null,
       lock          : false,
-      tables        : []
+      tables        : [],
     } 
   }
   
@@ -20,14 +20,14 @@ class TableService extends React.Component {
   
   handleTables() {
     let capacity = parseInt(this.state.tableCapacity);
-    console.log(typeof(capacity))// number
     let updateTables = [];
 
     for(let i = 1; i <= capacity; i++) { 
-      let seat = {
-        'customerId': i
+      let id = {
+        tableId : i,
+        seats   : 1
       }
-      updateTables.push(seat);
+      updateTables.push(id);
     };
     
     this.setState({

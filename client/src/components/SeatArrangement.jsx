@@ -1,10 +1,19 @@
 import React from 'react';
 
 let SeatArrangement = (props) => {
-  console.log(props.tableState.tables)
   return (
-    <div className = 'seat-arrangement'> 
-      {props.tableState.tableCapacity} 
+    <div className ='seat-arrangement'> 
+      Table Capacity: {props.tableState.tableCapacity}
+
+      <div className ='seat-configuration'>
+        {props.tableState.tables.map(table => 
+          <div className='table' key={table.tableId}>
+            {table.tableId}
+            <input type='text'/>
+          </div>
+        )}
+      </div> 
+      
     </div>
   )
 };
