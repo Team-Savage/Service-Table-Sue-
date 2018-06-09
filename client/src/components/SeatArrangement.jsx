@@ -9,11 +9,12 @@ let SeatArrangement = (props) => {
         {props.tableState.tables.map(table => 
           <div className='table' key={table.tableId}>
             {table.tableId}
-            <input type='text'/>
+            <input type='number'/>
           </div>
         )}
+        <button onClick={props.confirmArrangement()}>LOCK-IN</button>
       </div> 
-      
+    
     </div>
   )
 };

@@ -12,6 +12,14 @@ class TableService extends React.Component {
     } 
   }
   
+  confirmArrangement() {
+    //set state of tables via iteration of seats 
+    
+    // this.setState({
+    //   tables : 
+    // })
+  }
+
   handleChange(event) {
     this.setState({
       [event.target.name] : event.target.value
