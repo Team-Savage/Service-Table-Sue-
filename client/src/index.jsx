@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SeatArrangement from './components/SeatArrangement';
+import SeatArrangement from './components/SeatArrangement.jsx';
 
 class TableService extends React.Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class TableService extends React.Component {
     return (this.state.lock)? 
       (
         <div className='table-spawn'>
-          <SeatArrangement tableState={this.state}/>
+          <SeatArrangement tableState={this.state.lock}/>
         </div>
       )
         :
