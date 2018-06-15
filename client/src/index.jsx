@@ -40,7 +40,7 @@ class TableService extends React.Component {
     return (this.state.lock)? 
       (
         <div className='table-spawn'>
-          <SeatArrangement tableState={this.state.lock}/>
+          <SeatArrangement state={this.state}/>
         </div>
       )
         :
