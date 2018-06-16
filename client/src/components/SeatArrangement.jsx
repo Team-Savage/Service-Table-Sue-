@@ -4,13 +4,19 @@ class SeatArrangement extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      work : 'im working'
+      lock: false
     }
   }
 
   componentDidMount() {
-    console.log('hai')
     console.log(this.props);
+  }
+
+  lock() {
+    console.log('!lock')
+    this.setState({
+      lock: !this.state.lock
+    })
   }
 
   render() {
@@ -25,10 +31,13 @@ class SeatArrangement extends React.Component {
           {tables.map(table => 
             <div className='table' key={table.tableId}>
               {table.tableId}
-              <input type='text' name='seatCapacity'/>
+              <input type='number' name='seatCapacity'/>
             </div> 
           )}
         </div> 
+        {/* make conditional button dependent on lock-type */}
+        <button onClick={this.lock.bind(this)}> LOCK-IN ARRANGEMENT </button>
+        
       </div>
     )//end return       
   }
