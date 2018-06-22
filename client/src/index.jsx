@@ -7,7 +7,8 @@ class TableService extends React.Component {
     super(props);
     this.state = {
       tableCapacity : null,
-      lock          : false,
+      lock1         : false,
+      lock2         : false,
       tables        : [],
     } 
   }
@@ -19,6 +20,7 @@ class TableService extends React.Component {
   }
   
   handleTables() {
+    console.log('handling tables')
     let capacity = parseInt(this.state.tableCapacity);
     let updateTables = [];
 
@@ -31,16 +33,23 @@ class TableService extends React.Component {
     };
     
     this.setState({
-      lock   : true,
+      lock1  : true,
       tables : updateTables
     });
   }
 
+  lock() {
+    console.log('lock2 toggled')
+    this.setState({
+      lock2: !this.state.lock2
+    })
+  }
+
   render() {
-    return (this.state.lock)? 
+    return (this.state.lock1)? 
       (
         <div className='table-spawn'>
-          <ConfigureSeats state={this.state}/>
+          <ConfigureSeats state={this.state} lock2={this.lock.bind(this)}/>
         </div>
       )
         :

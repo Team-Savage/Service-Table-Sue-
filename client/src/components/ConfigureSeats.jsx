@@ -13,13 +13,6 @@ class ConfigureSeats extends React.Component {
     console.log(this.props);
   }
 
-  lock() {
-    console.log('!lock')
-    this.setState({
-      lock: !this.state.lock
-    })
-  }
-
   render() {
     let tables = this.props.state.tables;
 
@@ -35,8 +28,7 @@ class ConfigureSeats extends React.Component {
             </div> 
           )}
         </div> 
-        {/* make conditional button dependent on lock-type */}
-        <button onClick={this.lock.bind(this)}> LOCK-IN ARRANGEMENT </button>
+        <button onClick={this.props.lock2()}> LOCK-IN ARRANGEMENT </button>
         
         <div className = 'table-locked'>
           <SeatArrangement/>
