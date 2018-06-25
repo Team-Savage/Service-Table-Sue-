@@ -5,7 +5,7 @@ class ConfigureSeats extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      lock          : false
+      lock  : false
     }
   }
 
@@ -28,7 +28,7 @@ class ConfigureSeats extends React.Component {
             </div> 
           )}
         </div> 
-        <button onClick={this.props.lock2()}> LOCK-IN ARRANGEMENT </button>
+        <button onClick={this.props.lock2}> LOCK-IN ARRANGEMENT </button>
         
         <div className = 'table-locked'>
           <SeatArrangement/>
