@@ -16,7 +16,7 @@ let ConfigureSeats = (props) => {
           </div> 
         )}
       </div> 
-      <button onClick={props.lock2}> LOCK-IN ARRANGEMENT </button>
+      <button onClick={props.lock2}> LOCK ARRANGEMENT </button>
       
       <div className = 'table-locked'>
         <SeatArrangement/>
@@ -27,6 +27,7 @@ let ConfigureSeats = (props) => {
     (
       <div>
         unlocked
+        <button onClick={props.lock2}> UNLOCK ARRANGEMENT </button>
       </div> 
     ) 
 };
