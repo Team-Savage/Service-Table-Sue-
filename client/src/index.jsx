@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ConfigureSeats from './components/ConfigureSeats.jsx';
+import './style.css';
 
 class TableService extends React.Component {
   constructor(props) {

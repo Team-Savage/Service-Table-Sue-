@@ -6,5 +6,4 @@ let SeatArrangement = (props) => {
   )
 }
 
-
 export default SeatArrangement;

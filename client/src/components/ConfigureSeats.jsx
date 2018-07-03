@@ -22,7 +22,7 @@ let ConfigureSeats = (props) => {
         <SeatArrangement/>
       </div>
     </div>
-    )//end return       
+    )   
       : 
     (
       <div>
